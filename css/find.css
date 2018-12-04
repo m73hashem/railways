@@ -1,0 +1,57 @@
+
+.asd{
+    position: absolute;
+    top:100px;
+    left: 30%;
+    height: 450px; /*height of form container*/
+    width:40%;
+}
+form{width: 90%;
+    height: 100%;
+    margin-left: 30px;
+    font-size: 1.5em;}
+.l{display: block;
+    background-color: rgba(240, 238, 235, 0.51);
+    height: 60px;
+    margin-top: 20px;
+    padding-left: 5px;
+    border-radius: 5px;
+    
+}
+.l input,select{
+    position: absolute;
+    right: 5%;
+    padding-left: 10px;
+    margin-top: 10px;
+    width: 75%;
+    height: 40px;
+    
+    border-radius: 5px;
+}
+.tr input{margin-top: -20px;}
+.sh{
+    position: absolute;
+    bottom: 50px;
+    left: 40px;
+    width: 40%;
+    height: 40px;
+    font-size: 1.1em;
+    
+}
+.res{position: absolute;
+    bottom: 50px;
+    right: 40px;
+    width: 40%;
+    height: 40px;
+    font-size: 1.1em;
+}
+/*
+label{display: block;
+    background-color: azure;
+border-radius: 5px;
+margin-top: 20px;
+height: 30px;
+width: 50px}
+input{border: none;
+    margin-left: 50px;
+}*/

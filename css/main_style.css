@@ -1,0 +1,45 @@
+body{
+    background-image: url(../images/tr.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.main{position: relative;
+    height:100%;
+    width: 100%;}
+/*nav bar*/
+.nav{
+    background-color:#ff6347;
+    height: 50px;
+    width: 97%;
+    padding: 5px;
+    padding-left: 20px;
+    position: fixed;
+    border-radius: 10px;
+    
+}
+.nav h3{display: inline;
+    float: left;
+    color: white;
+    margin-right: 20px;
+}
+span{width: 100%;
+    position: relative;}
+.nav ul{
+    list-style-type: none;}
+.nav li{
+    display: inline;
+    margin: 2px;}
+.nav a{
+    text-decoration: none; 
+    border-right: 2px solid #fff;
+    padding-right: 20px;
+    font-size: 1.5em;
+    margin-left: 20px;
+}
+.nav a:hover{
+    background-color: cornsilk;
+}
+
+/*end of nav bar*/

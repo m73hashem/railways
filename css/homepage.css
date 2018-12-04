@@ -1,0 +1,56 @@
+.second{
+    position: absolute;
+    top: 100px;
+    left: 25px;
+    height: 600px;
+    width: 1300px;
+    z-index: -1;
+    margin-bottom: 30px;
+    border-radius: 15px;
+    background-color: rgba(240, 238, 235, 0.51);
+}
+.second div{
+    margin: 20px 0px 0px 20px; /* top right bottom left */
+    float: left;
+}
+.log{ height: 350px;
+    width: 300px;
+    border-top-left-radius: 15px;
+    background-color: rgba(146, 140, 202, 0.68);
+}
+.log .login{
+    margin-top: -10px;
+    }
+.log .lin,.log .signup input{ /*refer to input user name & password*/
+    width: 250px;
+    border-radius: 10px;
+    padding-left: 10px;
+    margin-bottom: 20px;
+}
+.log input,.log button{
+    height: 30px;
+    margin-bottom: 10px;
+}
+.log .signup{ 
+    margin-top: -10px;
+    position: absolute;
+    visibility: hidden;
+}
+.media{
+    height: 350px;
+    width: 940px;
+    border-top-right-radius: 15px;
+   background-color: rgba(240, 238, 235, 0.51);
+}
+.news{
+    height: 190px;
+    width: 300px;
+    border-bottom-left-radius: 15px;
+    background-color: rgba(240, 238, 235, 0.51);
+}
+.use{    
+    height: 190px;
+    width: 940px;
+    border-bottom-right-radius: 15px;
+    background-color: rgba(240, 238, 235, 0.51);
+}

@@ -1,0 +1,26 @@
+
+    .second_div{
+        
+    width: 80%;
+    height: 90%;
+    border-radius: 10px;
+        margin-top: 50px;
+    margin-left: 10%;
+    padding-left: 10px;
+    font-size: 1.5em;
+    background-color: rgba(244, 255, 255, 0.81);    }
+.second_div label{
+    display: block;
+    margin-top: 10px;
+}
+.second_div label b{position: absolute;
+    left: 35%;
+color: brown;}
+.second_div p{color: red;}
+.yes{height: 30px;
+width: 100px;
+font-weight: bold;}
+.exit{width: 60%;
+    height: 40px;
+margin-left: 20%;
+font-size: 1.1em;}
