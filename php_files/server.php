@@ -20,7 +20,7 @@
 	$_SESSION['success'] = "";
 
 	// connect to database
-	$db = mysqli_connect('localhost', 'root', 'roottoor', 'railways');
+	$db = mysqli_connect('localhost', 'root', 'pw', 'railways'); //pw is mysql password if not exists set to ''
 
 	// REGISTER USER
 	if (isset($_POST['reg_user'])) {

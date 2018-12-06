@@ -1,4 +1,4 @@
-<?php /*
+<?php /* >>not used now
 <?php 
 include('server.php');
 ?>

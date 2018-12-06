@@ -1,5 +1,5 @@
 <?php
-$con = mysqli_connect('localhost', 'root', 'roottoor');
+$con = mysqli_connect('localhost', 'root', 'pw'); //pw is mysql password if not exists set to ''
 $sql = "CREATE DATABASE IF NOT EXISTS railways";
 if ($con->query($sql) === TRUE) {
     echo "<br>Database created successfully";
