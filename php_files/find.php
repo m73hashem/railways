@@ -1,8 +1,11 @@
+
 <?php 
-include('server.php');
+//include('server.php');
 
 
   ?>
+<?php
+/*
 <!DOCTYPE html>
 <html>
     <head>
@@ -105,3 +108,6 @@ include('server.php');
     
     </body>
 </html>
+
+*/
+?>
