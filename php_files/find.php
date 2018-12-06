@@ -14,23 +14,27 @@ include('server.php');
     
     <body>
         <div class="main">
+            
             <div class="nav">
                 <span><h3> Egyption Railways </h3>
                     <ul>
                         <li><a href="../home_page.php">Mian Page</a></li>
                         <li><a href="find.php">Find Reservation</a></li>
-                        <li><a href="modify.php">Modification</a></li>
-                        <li><?php 
+                        
+                        <li class="lastli" >
+                        <?php 
                         if (isset($_SESSION['log']) and $_SESSION['log'] === true)
-                        {echo "<b style='font-size:24px'>".$_SESSION['username']."</b>";}
-                        else {echo " <a href='#logg'>LOG IN</a>";
-                             echo "<a href='#'>Sign UP</a>";}
+                        {
+                            echo "<a href='modify_login.php'>Modification & Details</a>";
+                            echo "<b style='font-size:24px'>".$_SESSION['username']."</b>";}
+                        else {echo " <a href='#' onclick='sign()' >LogIn /Sign UP</a>";}
                         ?> 
                         <?php  if (isset($_SESSION['username'])) : ?>
                         <a href="server.php?logout='1'" style="color: red; background: #fff;
                                                   padding-left:10px;">logout</a>
                         <?php endif ?>
                     </li>
+
                     </ul>
                 </span>
             </div>
@@ -85,6 +89,9 @@ include('server.php');
             </div>
         
         </div>
+        
+        <?php include("pop_up.php"); ?>
+        
         <script> //to show current date 
             var date = new Date();
             var day = date.getDate();

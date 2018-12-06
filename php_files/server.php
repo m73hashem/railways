@@ -7,6 +7,8 @@
   	session_destroy();
   	unset($_SESSION['username']);
   	unset($_SESSION['log']);
+  	unset($_SESSION['userid']);
+  	unset($_SESSION['usermail']);
   	header("location: ../home_page.php");
   }
 
@@ -33,7 +35,7 @@
 		if (empty($email)) { array_push($errors, "Email is required"); }
 		if (empty($password_1)) { array_push($errors, "Password is required"); }
 
-		if ($password_1 != $password_2) {
+		if ($password_1 !== $password_2) {
 			array_push($errors, "The two passwords do not match");
 		}
         /*
@@ -90,11 +92,16 @@ function record_exists ($con,$table, $column, $value) {
 			$password = md5($password);
 			$query = "SELECT * FROM users WHERE username='$username' AND password='$password'";
 			$results = mysqli_query($db, $query);
+			$query2 = "SELECT user_id FROM users WHERE username='$username' AND password='$password'";
+			$res = mysqli_query($db, $query2);//get user id
+            $value = mysqli_fetch_object($res);
 
 			if (mysqli_num_rows($results) == 1) {
 				$_SESSION['username'] = $username;
 				$_SESSION['success'] = "You are now logged in";
-                $_SESSION['log'] = true; //////////////////////////////////
+                $_SESSION['log'] = true;
+                $_SESSION['userid'] = $value->user_id;//////////////////////////////////
+                //////////////////////////////
 				//header('location: index.php');
 			}else {
 				array_push($errors, "Wrong username/password combination");
@@ -102,8 +109,7 @@ function record_exists ($con,$table, $column, $value) {
 		}
 	}
 
-    
-
+//////////
 
 
 ?>

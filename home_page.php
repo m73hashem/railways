@@ -10,13 +10,8 @@ include('php_files/server.php');
         <meta charset="utf-8" />
         <link rel="stylesheet" href="css/main_style.css">
         <link rel="stylesheet" href="css/homepage.css" >
-        <script>
-        var sessionvalue="<?php if(isset($_SESSION['log']))
-                           echo 'yes';
-                           else echo 'no'; ?>";
-            
-            
-        </script>
+
+        
     </head>
     <body>
         <div class="main">
@@ -25,12 +20,14 @@ include('php_files/server.php');
                 <ul>
                     <li><a href="home_page.php">Mian Page</a></li>
                     <li><a href="php_files/find.php"css/find.css""book.html"">Find Reservation</a></li>
-                    <li><a href="php_files/modify.php">Modification</a></li>
-                    <li class="lastli" ><?php 
+                    
+                    <li class="lastli" >
+                        <?php 
                         if (isset($_SESSION['log']) and $_SESSION['log'] === true)
-                        {echo "<b style='font-size:24px'>".$_SESSION['username']."</b>";}
-                        else {echo " <a href='#logg'>LOG IN</a>";
-                             echo "<a href='#'>Sign UP</a>";}
+                        {
+                            echo "<a href='php_files/modify_login.php'>Modification & Details</a>";
+                            echo "<b style='font-size:24px'>".$_SESSION['username']."</b>";}
+                        else {echo " <a href='#' onclick='sign()' >LogIn /Sign UP</a>";}
                         ?> 
                         <?php  if (isset($_SESSION['username'])) : ?>
                         <a href="php_files/server.php?logout='1'" style="color: red; background: #fff;
@@ -40,13 +37,15 @@ include('php_files/server.php');
                 </ul>
             </span>
             </div>
+            <div class="logfrom_nav">
             
+            </div>
             <div class="second" >
                 <div class="log " id="zxc" >
                     
-                    <div class="login"  id="login" >
+                    <div class="login"  id="loginmain" >
                         <h2>login / create account</h2>
-                        <form method="post" action="home_page.php">
+                        <form method="post" action="<?=$_SERVER['PHP_SELF'];?>">
                             
                             <input class="lin" id="logg" type="text" placeholder="user name" name="username"><br>
                             <input class="lin" type="password" placeholder="password" name="password"><br>
@@ -59,9 +58,9 @@ include('php_files/server.php');
                     </div>
                  
                     
-                    <div class="signup" id="signup" >
+                    <div class="signup" id="signupmain" >
                         <h2> create account</h2>
-                        <form method="post" action="home_page.php">
+                        <form method="post" action="<?=$_SERVER['PHP_SELF'];?>">
                             
                                 <input  type="text" placeholder="user name" name="username1"><br>
                                 <input type="email" placeholder="e-mail" name="email"><br>
@@ -78,21 +77,10 @@ include('php_files/server.php');
                 <div class="news"> <h2>News</h2></div>
                 <div class="use"><h2>How To Use:</h2></div>
             </div>
-            
+          
+        <?php include("php_files/pop_up.php"); ?>
+          
         </div>
         
-        <script type="text/javascript" >
-            function hideLog(){
-                document.getElementById("login").style.visibility= "hidden";
-                document.getElementById("signup").style.visibility= "visible";
-            }
-            /*
-            function sign(){
-                alert(" account created");
-            }*/
-            if(sessionvalue=='yes')
-            document.getElementById("login").style.visibility="hidden";
-        </script>
-    
     </body>
 </html>

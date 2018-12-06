@@ -1,3 +1,4 @@
+<?php /*
 <?php 
 include('server.php');
 ?>
@@ -8,7 +9,14 @@ include('server.php');
 <meta charset="utf-8" />
 <link rel="stylesheet" href="../css/main_style.css" >
 <link rel="stylesheet" href="../css/modify.css" >
-
+    <script>
+        var sessionvalue="<?php if(isset($_SESSION['log']))
+                           echo 'yes';
+                           else echo 'no'; ?>";
+            
+            
+        </script>
+    
 </head>
 <body>
     <?php
@@ -20,12 +28,13 @@ include('server.php');
             <ul>
                 <li><a href="../home_page.php">Mian Page</a></li>
                 <li><a href="find.php">Find Reservation</a></li>
-                <li><a href="modify.php">Modification</a></li>
-                <li><?php 
+                <li class="lastli" >
+                        <?php 
                         if (isset($_SESSION['log']) and $_SESSION['log'] === true)
-                        {echo "<b style='font-size:24px'>".$_SESSION['username']."</b>";}
-                        else {echo " <a href='#logg'>LOG IN</a>";
-                             echo "<a href='#'>Sign UP</a>";}
+                        {
+                            echo "<a href='modify_login.php'>Modification & Details</a>";
+                            echo "<b style='font-size:24px'>".$_SESSION['username']."</b>";}
+                        else {echo " <a href='#' onclick='sign()' >LogIn /Sign UP</a>";}
                         ?> 
                         <?php  if (isset($_SESSION['username'])) : ?>
                         <a href="server.php?logout='1'" style="color: red; background: #fff;
@@ -36,23 +45,28 @@ include('server.php');
             </span>
         </div>
         <!-- end of nav bar -->
-                <div class="cancel">
+                <div class="cancel" id="modifylog" ><!-- modification form login -->
             <h2 align="center">Modify Reservation</h2><br>
             <form method="post" action="modify.php"   >
                 <span class="l">email <br><input id="f_in" type="email" placeholder="email" name="email"></span>
                 <span class="l">password <br><input id="s_in" type="password" placeholder="password" name="pw"></span>
                 <input class="next" type="submit" value="Next" name="modify" />
                     </form>
+        </div>
+        <div class="cancel" id="modifyform">
         
-                   
         </div>
         
     </div> <!--end div main-->
-    
+    <script>
+    if(sessionvalue=='yes')
+            document.getElementById("modifylog").style.visibility="hidden";
+    </script>
     
 </body>
 </html>
-
+*/
+?>
 //<?php
      //if (isset($_POST['modify'])) {
 /*		

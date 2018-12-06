@@ -47,17 +47,20 @@ width: 100%;}
 <body>
      
     <div class="main">
+        <?php include("pop_up.php"); ?>
         <div class="nav">
                 <span><h3> Egyption Railways </h3>
                     <ul>
                         <li><a href="../home_page.php">Mian Page</a></li>
                         <li><a href="find.php">Find Reservation</a></li>
-                        <li><a href="modify.php">Modification</a></li>
-                        <li><?php 
+                        
+                        <li class="lastli" >
+                        <?php 
                         if (isset($_SESSION['log']) and $_SESSION['log'] === true)
-                        {echo "<b style='font-size:24px'>".$_SESSION['username']."</b>";}
-                        else {echo " <a href='#logg'>LOG IN</a>";
-                             echo "<a href='#'>Sign UP</a>";}
+                        {
+                            echo "<a href='modify_login.php'>Modification & Details</a>";
+                            echo "<b style='font-size:24px'>".$_SESSION['username']."</b>";}
+                        else {echo " <a href='#' onclick='sign()' >LogIn /Sign UP</a>";}
                         ?> 
                         <?php  if (isset($_SESSION['username'])) : ?>
                         <a href="server.php?logout='1'" style="color: red; background: #fff;
@@ -112,22 +115,49 @@ if (isset($_POST['show'])) {
         ."<td>{$ticket['st_to']}</td>"
         ."<td>{$ticket['time1']}</td>"
         ."<td>{$ticket['time2']}</td>"
-        ."<td>{$ticket['class']}</td><td><input type='checkbox' name='asd' value='".$ticket['ticket_id']."' /></td></tr>";
-}
+        ."<td>{$ticket['class']}</td><td><input type='checkbox' name='checkedTecket[]' value='".$ticket['ticket_id']."' /></td></tr>";}
 
         echo "</table><input type='submit' name='reserve' style='margin: 20px' /></form>";
         
     }
+        //////put code bellow here//
     else{ echo"<h2> No Data...!</h2>";}
     }
     else{include("errors.php");}
     }
-    mysqli_close($db);
+    
     ?>
 
-            </h2>        
+            
+        <?php
+    
+
+        //get checked values
+        if(isset($_POST['reserve'])and !empty($_POST['checkedTecket'])){
+            $check=$_POST['checkedTecket'];
+            
+            if(isset($_SESSION['log']) and $_SESSION['log']== true){
+                $userId=$_SESSION['userid'];
+                foreach($check as $value){//get reservation
+                    $query="UPDATE ticket SET reserve= $userId WHERE ticket_id = $value";
+                    mysqli_query($db, $query);}
+                echo "you reserverd tickets no: ";
+                foreach($check as $value){
+                    echo  $value." ,";}
+                echo "<br>an email with details sent for you.<br>";
+            }
+            else{
+                echo "<h1>login/sign up first</h1>";
+            //reserve;
+            }
+        }
+    else{echo "no choice";}
+                
+        ?>
+    </h2>        
     
         </div>
+        
     </div>   
 </body>
 </html>
