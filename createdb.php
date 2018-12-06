@@ -23,6 +23,8 @@ else {
 
 $q="INSERT INTO users(user_id,username,email,password) values(1,'user1','user14@user.com',md5('user1')),
                                                              (2,'user2','user3@user.com',md5('user2'))";
+$q="INSERT INTO users(user_id,username,email,password) values(1,'user1','user1@user1.com',md5('user1')),
+                                                             (2,'user2','user2@user2.com',md5('user2'))";
 if ($con->query($q) === TRUE) {
     echo "<br>values inserted into users successfully";
 } else {
